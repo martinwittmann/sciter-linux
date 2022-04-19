@@ -12,7 +12,7 @@ add_definitions(${GTK_CFLAGS_OTHER})
 
 include_directories(sciter/include)
 
-#add_executable(test sciter/include/sciter-gtk-main.cpp usciter.cpp)
-add_executable(test sciter/notes/notes.cpp sciter/include/sciter-gtk-main.cpp)
+add_executable(test sciter/include/sciter-gtk-main.cpp usciter.cpp)
+#add_executable(test sciter/notes/notes.cpp sciter/include/sciter-gtk-main.cpp)
 target_link_libraries(test ${GTK_LIBRARIES})
 
