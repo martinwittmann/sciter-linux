@@ -11,9 +11,19 @@
       text-align:center;
     }
   </style>
+  <!--
+  <script type="text/tiscript">
+    event click $(#button) {
+      view.msgbox(#alert, "", "Title!!!")
+    }
+  </script>
+  -->
   <script type="text/javascript">
+      console.log('12312312')
       document.ready = function() {
+          console.log('dfgdfgdfg')
         // calling native method defined in main.cpp
+          view.windowTopmost = true;
         const thisWindow = Window.this;
         document.body.innerText = thisWindow.frame.nativeMessage();
       }
@@ -21,5 +31,6 @@
 </head>
 <body>
   <h1>Hallo Witti</h1>
+  <button id="button">My button</button>
 </body>
 </html>

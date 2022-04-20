@@ -1,2 +1,2 @@
 
-./sciter/bin/linux/packfolder ui resources.cpp -v "resources"
+./sciter/bin.lnx/packfolder ui resources.cpp -v "resources"

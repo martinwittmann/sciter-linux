@@ -3,7 +3,13 @@
 
 class uSciter: public sciter::window {
 public:
-  uSciter() : window(SW_TITLEBAR | SW_RESIZEABLE | SW_CONTROLS | SW_MAIN | SW_GLASSY | SW_ENABLE_DEBUG) {}
+  uSciter() : window(
+                  SW_TITLEBAR |
+                  SW_RESIZEABLE |
+                  SW_CONTROLS |
+                  SW_MAIN |
+                  SW_GLASSY |
+                  SW_ENABLE_DEBUG) {}
 
   int foo(int p) { return p + 42; }
 
@@ -29,15 +35,11 @@ int uimain(std::function<int()> run ) {
                   ALLOW_EVAL |
                   ALLOW_SYSINFO );
 
-//#ifdef _DEBUG
-  sciter::debug_output_console console; //- uncomment it if you will need console window
-//#endif
-
+  SciterSetOption(nullptr, SCITER_SET_DEBUG_MODE, true);
+  sciter::debug_output_console _;
   sciter::archive::instance().open(aux::elements_of(resources));
-
   sciter::om::hasset<uSciter> pwin = new uSciter();
-
-  // example, setting "usciter" media variable, check https://sciter.com/forums/topic/debugging-issues/
+  // Example, setting "usciter" media variable, check https://sciter.com/forums/topic/debugging-issues/
   SciterSetMediaType(pwin->get_hwnd(), WSTR("desktop,usciter"));
 
   pwin->load(WSTR("this://app/main.htm"));
